@@ -10,8 +10,8 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        color: #f0f0f0;
-        background: #0a1a2f;
+        color: #00ff99;
+        background: #00ff99;
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -49,7 +49,7 @@
         background: rgba(17, 43, 68, 0.95);
         border-radius: 15px;
         box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
-        padding: 25px;
+        padding: 40px;
         z-index: 1;
         margin: 20px auto;
         max-height: 80vh;
@@ -72,6 +72,7 @@
         font-size: 1.8em;
         margin-bottom: 15px;
         font-weight: 600;
+        text-align: center;
     }
 
     h3 {
@@ -87,17 +88,39 @@
 
     label {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         color: #00ff99;
         font-size: 0.95em;
+        margin-top: 10px;
     }
 
     input, textarea {
-        width: 100%;
-        padding: 12px;
+        width: 98%;
+        padding: 10px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 19px;
         background: rgba(15, 38, 61, 0.9);
         border: 1px solid rgba(0, 255, 153, 0.3);
-        border-radius: 8px;
+        border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-top-color: rgba(1, 222, 153, 0.3);
+            border-right-color: rgba(1, 222, 153, 0.3);
+            border-bottom-color: rgba(1, 222, 153, 0.3);
+            border-left-color: rgba(1, 222, 153, 0.3);
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+        border-radius: 111px;
         color: white;
         font-size: 1em;
         transition: border-color 0.3s ease;
@@ -108,21 +131,22 @@
         outline: none;
         box-shadow: 0 0 0 2px rgba(0, 255, 153, 0.1);
     }
-
+    
+     /* CSS Botao do enviar para balaço================================================================================*/
     button[type="submit"] {
         background: #00ff99;
         color: #0a1a2f;
         padding: 12px 25px;
         border: none;
-        border-radius: 8px;
+        border-radius: 20px;
         font-weight: 600;
         font-size: 1em;
         cursor: pointer;
         transition: all 0.3s ease;
-        width: 100%;
-        margin-top: 10px;
+        width: 104%;
+        margin-top: 25px;
     }
-
+    /* CSS Botao do enviar para balaço================================================================================*/
     button[type="submit"]:hover {
         background: #00cc7a;
         transform: translateY(-2px);
@@ -154,6 +178,33 @@
         transform: translateY(-2px);
     }
 
+    /* CSS Botao do Ativo e Passivo======================================================================================*/
+    .balance-buttons {
+       background: #01d48000;
+       transform: translateY(-2px);
+}
+
+     .balance-buttons button {
+       background: #00ff99;
+       color: #0a1a2f;
+       padding: 12px 25px;
+       border: none;
+       border-radius: 25px;
+       font-weight: 600;
+       font-size: 1em;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       width: 100%;
+       margin-top: 10px;
+      }
+       /* CSS do Montar balanço ================================================================================================*/
+  #set-up-swing {
+        max-height: 400px; 
+        overflow-y: auto;
+        padding-right: 10px; 
+}
+
+    /* CSS do Negociação de boletos ======================================================================================*/
     .content-section {
         background: rgba(15, 38, 61, 0.8);
         padding: 25px;
@@ -162,6 +213,7 @@
         max-height: 80vh;
         overflow-y: auto;
     }
+  
 
     #negotiations {
         display: flex;
@@ -254,7 +306,7 @@
         background: #2ecc71;
     }
 
-    /* Responsive */
+    /* Responsive ===================================================================================================*/
     @media (max-width: 768px) {
         .container {
             max-width: 90%;
@@ -361,7 +413,7 @@
         color: #00ff99;
     }
 
-    /* Estilo do Modal */
+    /* Estilo do Modal======================================================================================================= */
     .modal-overlay {
         display: none;
         position: fixed;
@@ -575,7 +627,7 @@
 
 <div class="container" id="login-page">
     <h2>Umbrella Financeiro - Login</h2>
-    <p class="welcome-text">Bem-vindo ao Umbrella Financeiro! Estamos aqui para ajudar nas suas negociações.</p>
+    <p class="welcome-text">Bem-vindo ao Umbrella Financeiro! estamos aqui para ajudar nas suas negociações.</p>
     <form id="login-form">
         <label for="email">E-mail:</label>
         <input type="email" id="email" required>
@@ -589,7 +641,7 @@
 
   <div class="container" id="dashboard" style="display: none;">
     <header>
-      <h2>Área do Franqueado</h2>
+      <h2>Área da Umbrella</h2>
       <button onclick="logout()" class="logout-btn">Sair</button>
     </header>
 
@@ -602,6 +654,7 @@
       <button onclick="showSection('set-up-swing')">Montar balanço</button>
     </nav>
 
+    <!-- Negociação de boletos -------------------------------------------------------------------------------------------------------->
     <section id="negotiations" class="content-section">
       <h3>Negociação de boletos</h3>
       <form id="negotiation-form">
@@ -638,47 +691,83 @@
         <button type="submit">Enviar para Negociação</button>
       </form>
     </section>
----------------------------------------------------------------------------
-    <section id="set-up-swing" class="content-section">
+    
+    <!-- Montar Balanço ---------------------------------------------------------------------------------------------------->
+    
+        <section id="set-up-swing" class="content-section" style="display: none;">
       <h3>Montar balanço</h3>
-      <form id="negotiation-form">
-        <div class="form-group">
-          <label for="amount">Caixa bancos:</label>
-          <input type="number" id="amount" step="10.000,00" required>
-        </div>
+    
+      <div class="balance-buttons">
+        <button type="button" onclick="showSection('ativo-section')">Ativo Circulante</button>
+        <button type="button" onclick="showSection('passivo-section')">Passivo Circulante</button>
+      </div>
+    
 
-        <div class="form-group">
-          <label for="amount">Contas a Receber:</label>
-          <input type="number" id="amount" step="10.000,00" required>
-        </div>
+ <!-- Ativo Circulante ---------------------------------------------------------------------------------------------->
+ <div id="ativo-section" style="display: none;">
+  <form class="content-section">
+    <div class="form-group">
+      <label for="caixa">Caixa bancos:</label>
+      <input type="number" id="caixa" required>
+    </div>
 
-        <div class="form-group">
-          <label for="amount">(-) Devedores duvidosos</label>
-          <input type="number" id="amount" step="10.000,00" required>
-        </div>
+    <div class="form-group">
+      <label for="receber">Contas a Receber:</label>
+      <input type="number" id="receber" required>
+    </div>
 
-        <div class="form-group">
-          <label for="amount">Estoque de materia prima</label>
-          <input type="number" id="amount" step="10.000,00" required>
-        </div>
+    <div class="form-group">
+      <label for="duvidosos">(-) Devedores duvidosos</label>
+      <input type="number" id="duvidosos" required>
+    </div>
 
-        <div class="form-group">
-          <label for="amount">Estoque de produtos semi-acabados</label>
-          <input type="number" id="amount" step="10.000,00" required>
-        </div>
+    <div class="form-group">
+      <label for="materia">Estoque de matéria-prima</label>
+      <input type="number" id="materia" required>
+    </div>
 
-        <div class="form-group">
-          <label for="observations">Observações complementares:</label>
-          <input type="number" id="amount" step="10.000,00" required>
-        </div>
-
+    <div class="form-group">
+      <label for="semiacabados">Estoque de produtos semi-acabados</label>
+      <input type="text" id="semiacabados" required>
+    </div>
+    <button type="submit">Enviar para balanço</button>
+  </form>
+</div>
+    
+      <!-- Passivo Circulante ---------------------------------------------------------------------------------------------->
+      <div id="passivo-section" style="display: none;">
+        <form class="content-section">
+          <div class="form-group">
+            <label for="fornecedores">Contas a Pagar - Fornecedores:</label>
+            <input type="number" id="fornecedores" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="salarios">Salários e encargos a pagar:</label>
+            <input type="number" id="salarios" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="emprestimos">Empréstimos e financiamentos CP:</label>
+            <input type="number" id="emprestimos" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="observations">Observações complementares:</label>
+            <input type="text" id="observations">
+          </div>
+    
         <button type="submit">Enviar para balanço</button>
       </form>
     </section>
----------------------------------------------------------------------------
+
     <section id="bills" class="content-section" style="display: none;">
       <h3>Meus Boletos</h3>
       <p>Você poderá visualizar seus boletos e status de pagamento em breve.</p>
+      <ul>
+        <li>Em processamento</li>
+        <time datetime="minute"></time>
+      </ul> 
     </section>
 
     <section id="analyst" class="content-section" style="display: none;">
@@ -701,7 +790,7 @@
       <p>Como foi seu atendimento?</p>
       <div class="evaluation-buttons">
         <button onclick="rateService(1)">😞</button>
-        <button onclick="rateService(2)"></button>
+        <button onclick="rateService(2)">😕</button>
         <button onclick="rateService(3)">😐</button>
         <button onclick="rateService(4)">🙂</button>
         <button onclick="rateService(5)">😁</button>
@@ -716,7 +805,7 @@
       <div class="chat-container" id="chat-messages">
         <div id="messages-wrapper">
           <div class="message bot-message">
-            Olá! Como posso ajudar você hoje?
+            Olá! Bem vidao(a) a Umbrella fianceiro, como posso ajudar você hoje?
           </div>
         </div>
       </div>
@@ -793,8 +882,8 @@
     const user = {
       email: "franqueado@umbrella.com.br",
       password: "12345678"
-    };
-
+    }
+    
     const loginForm = document.getElementById("login-form");
     const loginPage = document.getElementById("login-page");
     const dashboard = document.getElementById("dashboard");
@@ -881,6 +970,7 @@
         observations: document.getElementById('observations').value
       };
 
+
       addNegotiation(formData);
       
       // Limpa o formulário
@@ -949,14 +1039,20 @@
       });
     }
 
+
     // Respostas automáticas do bot
     const botResponses = [
-      "Entendi! Como posso ajudar com isso?",
-      "Claro, vou verificar essa informação para você.",
-      "Estou aqui para ajudar! Pode me contar mais?",
-      "Interessante! Deixa eu ver como posso te auxiliar.",
-      "Compreendo sua solicitação. Vou fazer o possível para ajudar."
-    ];
+  "Entendi! Como posso ajudar com isso?",
+  "Beleza, vou dar uma olhada nisso pra você.",
+  "Claro, tô verificando isso agora mesmo.",
+  "Pode deixar! Já estou checando aqui.",
+  "Boa pergunta! Me dá um segundo pra conferir.",
+  "Opa, saquei. Como posso te orientar?",
+  "Perfeito, deixa eu ver como posso resolver isso.",
+  "Hmm, interessante... Vamos dar uma olhada juntos!",
+  "Já entendi o ponto. Vamos resolver isso!",
+  "Tudo certo por aqui. E por aí, como posso ajudar?"
+];
 
     function getRandomResponse() {
       const index = Math.floor(Math.random() * botResponses.length);
@@ -968,7 +1064,7 @@
         sendMessage();
       }
     }
-
+    
     function sendMessage() {
       const input = document.getElementById('chat-input');
       const message = input.value.trim();
@@ -998,9 +1094,27 @@
           chatContainer.scrollTop = chatContainer.scrollHeight;
         }, 1000);
       }
-    }
-  </script>
 
-</body>
+// JSS Botoes ativo - passivo
+function mostrarFormulario() {
+    document.getElementById('set-up-swing').style.display = 'block';
+    document.getElementById('mostrar-btn').style.display = 'none';
+  }
+
+  function mostrarFormularioTipo(tipo) {
+    // Esconde ambos
+    document.getElementById('ativo-section').style.display = 'none';
+    document.getElementById('passivo-section').style.display = 'none';
+  }
+    // Mostra o tipo escolhido
+    if (tipo === 'ativo-section') {
+      document.getElementById('ativo-section').style.display = 'block';
+    } else if (tipo === 'passivo-section') {
+      document.getElementById('passivo-section').style.display = 'block';
+    }
+  }  
+  
+</script>
+ </body>
 
 </html>
