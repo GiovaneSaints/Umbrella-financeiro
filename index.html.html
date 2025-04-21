@@ -649,11 +649,11 @@
       <button onclick="showSection('negotiations')">📑 Negociações</button>
       <button onclick="showSection('bills')">💸 Meus Boletos</button>
       <button onclick="showSection('negotiations-history')">📃 Histórico de negociações</button>
-      <button onclick="showSection('analyst')">💲Solicitar um Analista</button>
-      <button onclick="showSection('chat-section')">💬 Chat</button>
-      <button onclick="showSection('set-up-swing')">Montar balanço</button>
+      <button onclick="showSection('analyst')">👨‍💻 Solicitar um Analista</button>
+      <button onclick="showSection('chat-section')">💬 Chat de atendimento</button>
+      <button onclick="showSection('set-up-swing')">⚖️ Montar balanço</button>
     </nav>
-
+ 
     <!-- Negociação de boletos -------------------------------------------------------------------------------------------------------->
     <section id="negotiations" class="content-section">
       <h3>Negociação de boletos</h3>
@@ -691,17 +691,15 @@
         <button type="submit">Enviar para Negociação</button>
       </form>
     </section>
-    
-    <!-- Montar Balanço ---------------------------------------------------------------------------------------------------->
-    
-        <section id="set-up-swing" class="content-section" style="display: none;">
-      <h3>Montar balanço</h3>
-    
-      <div class="balance-buttons">
-        <button type="button" onclick="showSection('ativo-section')">Ativo Circulante</button>
-        <button type="button" onclick="showSection('passivo-section')">Passivo Circulante</button>
-      </div>
-    
+      
+ <!-- Montar Balanço ----------------------------------------------------------------------------------------------------> 
+ <section id="set-up-swing" class="content-section" style="display: none;">
+  <h3>Montar balanço</h3>
+
+  <div class="balance-buttons">
+    <button type="button" onclick="showSection('ativo-section')">Ativo Circulante</button>
+    <button type="button" onclick="showSection('passivo-section')">Passivo Circulante</button>
+  </div>
 
  <!-- Ativo Circulante ---------------------------------------------------------------------------------------------->
  <div id="ativo-section" style="display: none;">
@@ -760,19 +758,19 @@
         <button type="submit">Enviar para balanço</button>
       </form>
     </section>
-
+ 
     <section id="bills" class="content-section" style="display: none;">
       <h3>Meus Boletos</h3>
       <p>Você poderá visualizar seus boletos e status de pagamento em breve.</p>
       <ul>
         <li>Em processamento</li>
-        <time datetime="minute"></time>
-      </ul> 
+      </ul>
+     
     </section>
 
     <section id="analyst" class="content-section" style="display: none;">
       <h3>Conversar com um Analista</h3>
-      <p>Entre em contato com um analista da Umbrella:</p>
+      <p>Entre em contato com o analista da Umbrella Financeiro:</p>
       <ul>
         <li>📱 WhatsApp: (11) 91234-5678</li>
         <li>📧 E-mail: Suporte@umbrella.com</li>
@@ -837,9 +835,10 @@
     </div>
   </div>
 
+  
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    particlesJS("particles-js", {
+    particlesJS("particles-js",{
       particles: {
         number: {
           value: 50
@@ -906,12 +905,12 @@
       dashboard.style.display = "block";
     }
 
-    function showSection(sectionId) {
+      function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
       sections.forEach(section => section.style.display = 'none');
       document.getElementById(sectionId).style.display = 'block';
       
-      // Se for a seção de histórico, atualiza a exibição
+      // Se for a seção de histórico, atualiza a exibição ==============================================================================
       if (sectionId === 'negotiations-history') {
         updateHistoryDisplay();
       }
@@ -924,7 +923,27 @@
     function closeEvaluationModal() {
       document.getElementById('evaluation-modal').style.display = 'none';
     }
+// Mostrar horas ==========================================================================================================================
+function showSection(sectionId) {
+    // Esconde todas as seções de formulário
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+      section.style.display = 'none';
+    });
 
+    // Exibe a seção que foi clicada
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+      sectionToShow.style.display = 'block';
+    }
+  }
+
+  // Chama a função para exibir o primeiro formulário (opcional)
+  window.onload = () => {
+  }
+// ==========================================================================================================================
+ 
+    // Avalição ==========================================================================================================================
     function rateService(rating) {
       let satisfactionClass = '';
       let barWidth = rating * 20;
@@ -1019,7 +1038,9 @@
       historyContainer.innerHTML = '';
 
       if (negotiationsArray.length === 0) {
-        historyContainer.innerHTML = '<p style="color: #00ff99; text-align: center;">Nenhuma negociação registrada ainda.</p>';
+historyContainer.innerHTML = '<p style="color: #00ff99; text-align: center;">Nenhuma negociação registrada até o momento.<br>' +
+                              'Por favor, realize os lançamentos após a abertura oficial.<br>' +
+                              'Aguarde um período de até 8 horas para que os dados sejam processados e refletidos no sistema.</p>';
         return;
       }
 
@@ -1094,25 +1115,8 @@
           chatContainer.scrollTop = chatContainer.scrollHeight;
         }, 1000);
       }
-
-// JSS Botoes ativo - passivo
-function mostrarFormulario() {
-    document.getElementById('set-up-swing').style.display = 'block';
-    document.getElementById('mostrar-btn').style.display = 'none';
-  }
-
-  function mostrarFormularioTipo(tipo) {
-    // Esconde ambos
-    document.getElementById('ativo-section').style.display = 'none';
-    document.getElementById('passivo-section').style.display = 'none';
-  }
-    // Mostra o tipo escolhido
-    if (tipo === 'ativo-section') {
-      document.getElementById('ativo-section').style.display = 'block';
-    } else if (tipo === 'passivo-section') {
-      document.getElementById('passivo-section').style.display = 'block';
     }
-  }  
+    
   
 </script>
  </body>
